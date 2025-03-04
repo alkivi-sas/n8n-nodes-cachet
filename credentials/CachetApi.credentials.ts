@@ -35,7 +35,7 @@ export class CachetApi implements ICredentialType {
 		type: 'generic',
 		properties: {
 			headers: {
-				'X-Cachet-Token': '={{$credentials.token}}',
+				Authorization: '={{"Bearer " + $credentials.token}}',
 			},
 		},
 	};

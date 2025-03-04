@@ -1,7 +1,7 @@
 {
   "name": "n8n-nodes-cachet",
-  "version": "0.1.4",
-  "description": "n8n node to manage Cachet Status Website",
+  "version": "0.1.5",
+  "description": "n8n node to manage Cachet status page (v3)",
   "keywords": [
     "n8n-community-node-package"
   ],
