@@ -5,10 +5,10 @@ import {
 	INodeProperties,
 } from 'n8n-workflow';
 
-export class HttpBinApi implements ICredentialType {
-	name = 'httpbinApi';
-	displayName = 'HttpBin API';
-	documentationUrl = '<your-docs-url>';
+export class CachetApi implements ICredentialType {
+	name = 'cachetApi';
+	displayName = 'Cachet API';
+	documentationUrl = 'https://docs.cachethq.io/api-reference/authentication';
 	properties: INodeProperties[] = [
 		{
 			displayName: 'Token',
@@ -23,7 +23,7 @@ export class HttpBinApi implements ICredentialType {
 			displayName: 'Domain',
 			name: 'domain',
 			type: 'string',
-			default: 'https://httpbin.org',
+			default: 'https://demo.cachethq.io/api',
 		},
 	];
 
@@ -35,7 +35,7 @@ export class HttpBinApi implements ICredentialType {
 		type: 'generic',
 		properties: {
 			headers: {
-				Authorization: '={{"Bearer " + $credentials.token}}',
+				'X-Cachet-Token': '={{$credentials.token}}',
 			},
 		},
 	};
@@ -44,7 +44,7 @@ export class HttpBinApi implements ICredentialType {
 	test: ICredentialTestRequest = {
 		request: {
 			baseURL: '={{$credentials?.domain}}',
-			url: '/bearer',
+			url: '/ping',
 		},
 	};
 }
